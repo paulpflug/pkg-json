@@ -1,7 +1,7 @@
 {
   "name": "pkg-json",
   "description": "a simple cli to alter a package.json",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/paulpflug/",
   "author": {
     "name": "Paul Pflugradt",
