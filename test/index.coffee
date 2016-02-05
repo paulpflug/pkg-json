@@ -109,18 +109,18 @@ describe "pkg-json", ->
     it "should work with return", ->
       clone = JSON.parse(JSON.stringify(testobj))
       clone.name = "newName2"
-      script(set:"name",value:"newName2",in:testjson,return: true).should.equal JSON.stringify clone
+      script(set:"name",value:"newName2",in:testjson,return: true).should.equal JSON.stringify clone,null,'\t'
 
     it "should work with push", (done) ->
       script push:"array",value:4,in:testjson,cb: ->
-        script(get:"array",in:testjson).should.equal JSON.stringify [1,2,3,4]
+        script(get:"array",in:testjson).should.equal JSON.stringify [1,2,3,4],null,'\t'
         done()
 
     it "should work with splice", (done) ->
       script splice:"array",value:0,in:testjson,cb: ->
-        script(get:"array",in:testjson).should.equal JSON.stringify [2,3,4]
+        script(get:"array",in:testjson).should.equal JSON.stringify [2,3,4],null,'\t'
         script splice:"array2",value:"b",in:testjson,cb: ->
-          script(get:"array2",in:testjson).should.equal JSON.stringify ["a","c"]
+          script(get:"array2",in:testjson).should.equal JSON.stringify ["a","c"],null,'\t'
           done()
   describe "cli", ->
     it "should be tested"

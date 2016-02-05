@@ -28,7 +28,7 @@ processJson = (options) ->
     if options.bare and options.return
       return val
     else
-      return JSON.stringify(val)
+      return JSON.stringify(val, null, '\t')
   if options.type == "push" or options.type == "splice"
 
     unless util.isArray(value)
