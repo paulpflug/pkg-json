@@ -1,0 +1,47 @@
+{
+  "name": "pkg-json",
+  "description": "a simple cli to alter a package.json",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paulpflug/",
+  "author": {
+    "name": "Paul Pflugradt",
+    "email": "paul.pflugradt@gmail.com"
+  },
+  "bin": {
+    "pkg-json": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paulpflug/pkg-json"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "core-util-is": "^1.0.2"
+  },
+  "devDependencies": {
+    "atom-ui-reporter": "0.0.1",
+    "chai": "^3.5.0",
+    "coffee-script": "^1.10.0",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.4.4"
+  },
+  "keywords": [
+    "package.json",
+    "json",
+    "package",
+    "cli"
+  ],
+  "readmeFilename": "README.md",
+  "scripts": {
+    "clean": "rimraf lib/ && mkdir lib",
+    "prebuild": "npm run clean",
+    "build": "coffee --compile --output lib/ src/*.coffee",
+    "watch": "coffee --compile --watch --output lib/ src/*.coffee",
+    "test": "mocha",
+    "patch": "npm version patch;npm publish;git push;git push --tags"
+  }
+}
