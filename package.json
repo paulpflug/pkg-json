@@ -39,9 +39,11 @@
   "scripts": {
     "clean": "rimraf lib/ && mkdir lib",
     "prebuild": "npm run clean",
-    "build": "coffee --compile --output lib/ src/*.coffee",
-    "watch": "coffee --compile --watch --output lib/ src/*.coffee",
+    "build": "coffee --no-header --compile --output lib/ src/*.coffee",
+    "watch": "coffee --no-header --compile --watch --output lib/ src/*.coffee",
     "test": "mocha",
-    "patch": "npm version patch;npm publish;git push;git push --tags"
+    "preversion": "npm test",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags && npm run publish"
   }
 }
